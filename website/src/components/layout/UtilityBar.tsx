@@ -10,7 +10,7 @@ export function UtilityBar() {
     <div className="hidden bg-ink text-fog md:block">
       <Container className="label flex justify-between gap-4 py-2 text-[11px]">
         <span>
-          {t.contact.details.address.join(' · ')} · <span className="code">{site.coordinates}</span>
+          {t.contact.details.address.join(' · ')}
         </span>
         <span className="code flex gap-3">
           <a href={landline.href} className="text-bone hover:text-flare">

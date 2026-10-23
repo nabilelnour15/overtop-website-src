@@ -48,7 +48,6 @@ export function Hero() {
       <ImageSlot
         slot="hero"
         alt={t.hero.imageAlt}
-        figure="FIG. 01"
         priority
         accent
         className="h-[clamp(220px,38vw,460px)] border-x-0 border-b-0"

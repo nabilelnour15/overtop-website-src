@@ -68,7 +68,6 @@ export function Footer() {
           <span>
             © {year} {site.name} · {t.footer.rights}
           </span>
-          <span>{site.coordinates}</span>
         </div>
       </Container>
     </footer>

@@ -83,7 +83,6 @@ export function ServiceSection({ id, tone = 'bone', flip = false, footer }: Serv
             <ImageSlot
               slot={id}
               alt={service.imageAlt}
-              figure={`FIG. ${number} · ${serviceCodes[id]}`}
               tone={dark ? 'ink' : 'concrete'}
               className="aspect-[4/3] w-full"
             />

@@ -6,8 +6,6 @@ import { TriangleOutline } from './TriangleOutline'
 interface ImageSlotProps {
   slot: ImageSlotId
   alt: string
-  /** Caption code shown in the corner, e.g. "FIG. 01". */
-  figure: string
   tone?: 'concrete' | 'ink'
   className?: string
   /** Load eagerly for above-the-fold images. */
@@ -20,7 +18,7 @@ interface ImageSlotProps {
  * A photo when one is configured in content/images.ts; until then a branded
  * graphic panel (cropped triangle + port code), so the page never looks unfinished.
  */
-export function ImageSlot({ slot, alt, figure, tone = 'concrete', className, priority, accent }: ImageSlotProps) {
+export function ImageSlot({ slot, alt, tone = 'concrete', className, priority, accent }: ImageSlotProps) {
   const image = images[slot]
   const dark = tone === 'ink'
 
@@ -70,16 +68,6 @@ export function ImageSlot({ slot, alt, figure, tone = 'concrete', className, pri
           </span>
         </>
       )}
-      <figcaption
-        className={cn(
-          'code absolute bottom-0 flex w-full justify-between gap-4 px-4 py-3 text-[11px] tracking-[0.06em]',
-          dark ? 'text-fog' : 'text-slate',
-          image && 'bg-ink/75 text-bone',
-        )}
-      >
-        <span>{figure}</span>
-        <span>{site.coordinates}</span>
-      </figcaption>
     </figure>
   )
 }

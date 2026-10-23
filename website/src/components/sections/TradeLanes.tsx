@@ -35,9 +35,6 @@ export function TradeLanes() {
         label={t.network.mapLabel}
         className="border-t border-deck"
       >
-        <div className="flex justify-end p-4 sm:p-6">
-          <span className="code text-[11px] text-fog">{site.coordinates}</span>
-        </div>
         <div className="mt-auto border-t border-deck bg-ink/85">
           <Container className="label flex flex-wrap items-center gap-x-8 gap-y-2 py-4 text-fog">
             <span className="flex items-center gap-2">

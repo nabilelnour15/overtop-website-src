@@ -26,7 +26,6 @@ export function About() {
           <ImageSlot
             slot="about"
             alt={about.imageAlt}
-            figure="FIG. 05 · OT/HQ"
             className="aspect-[4/3] w-full lg:col-span-5 lg:self-end"
           />
         </div>

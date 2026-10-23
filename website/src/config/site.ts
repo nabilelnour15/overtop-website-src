@@ -4,7 +4,7 @@
  */
 export const site = {
   name: 'Overtop',
-  email: 'eslamawad@live.com',
+  email: 'info@overtopcompany.com',
   phones: [
     { display: '(002) 034842894', href: 'tel:+2034842894', kind: 'landline' },
     { display: '(002) 01006934433', href: 'tel:+201006934433', kind: 'mobile' },
@@ -16,7 +16,6 @@ export const site = {
     city: 'Alexandria',
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=68+El+Houria+Ave+Alexandria+Egypt',
   },
-  coordinates: '31.2001° N · 29.9187° E',
   portCode: 'EGALY',
 } as const
 
