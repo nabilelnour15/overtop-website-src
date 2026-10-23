@@ -11,8 +11,8 @@ function Logo() {
   const { t } = useI18n()
   return (
     <a href="#top" aria-label={t.a11y.home} className="flex shrink-0 items-center gap-3 py-3">
-      <img src="/brand/overtop-mark.png" alt="" width={34} height={32} className="h-8 w-auto" />
-      <img src="/brand/overtop-wordmark.png" alt="" width={110} height={18} className="h-[18px] w-auto" />
+      <img src={`${import.meta.env.BASE_URL}brand/overtop-mark.png`} alt="" width={34} height={32} className="h-8 w-auto" />
+      <img src={`${import.meta.env.BASE_URL}brand/overtop-wordmark.png`} alt="" width={110} height={18} className="h-[18px] w-auto" />
     </a>
   )
 }

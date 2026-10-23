@@ -13,7 +13,7 @@ export function Footer() {
       <Container className="flex flex-col gap-14 pt-16 pb-8 sm:pt-20">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <img
-            src="/brand/overtop-logo-reverse.png"
+            src={`${import.meta.env.BASE_URL}brand/overtop-logo-reverse.png`}
             alt={`${site.name} | ${t.footer.tagline}`}
             width={601}
             height={576}
