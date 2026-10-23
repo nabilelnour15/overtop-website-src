@@ -14,10 +14,10 @@ export interface SlotImage {
 }
 
 export const images: Record<ImageSlotId, SlotImage | null> = {
-  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 55%' },
-  import: { src: `${import.meta.env.BASE_URL}images/import.webp`, position: '58% 50%' },
-  export: { src: `${import.meta.env.BASE_URL}images/export.webp`, position: '72% 50%' },
-  transport: { src: `${import.meta.env.BASE_URL}images/transport.webp`, position: '50% 50%' },
-  customs: { src: `${import.meta.env.BASE_URL}images/customs.webp`, position: '68% 50%' },
-  about: { src: `${import.meta.env.BASE_URL}images/about.webp`, position: '62% 50%' },
+  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 62%' },
+  import: { src: `${import.meta.env.BASE_URL}images/import.webp`, position: '62% 40%' },
+  export: { src: `${import.meta.env.BASE_URL}images/export.webp`, position: '34% 55%' },
+  transport: { src: `${import.meta.env.BASE_URL}images/transport.webp`, position: '50% 62%' },
+  customs: { src: `${import.meta.env.BASE_URL}images/customs.webp`, position: '22% 55%' },
+  about: { src: `${import.meta.env.BASE_URL}images/about.webp`, position: '80% 45%' },
 }

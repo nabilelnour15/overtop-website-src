@@ -138,7 +138,7 @@ export const en: Dictionary = {
           'Product certificates, where the buyer requires them',
         ],
       },
-      imageAlt: 'Container being loaded onto a vessel',
+      imageAlt: 'Truck with a red container arriving at the terminal gate',
     },
     transport: {
       name: 'Transportation',
