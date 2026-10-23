@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+
+/*
+ * Overtop design tokens — mirrors the "Overtop Design System" canvas.
+ * Neutrals are warm and mineral; red stays in solid blocks and single marks.
+ * Radius is always 0. Separation comes from 1px / 2px rules, never shadows.
+ */
+@theme {
+  --font-sans: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-arabic: 'Alexandria', 'Archivo', system-ui, sans-serif;
+
+  /* Neutrals */
+  --color-ink: #111113;
+  --color-hull: #1b1b1e;
+  --color-deck: #2a2a2e;
+  --color-slate: #5c5a55;
+  --color-fog: #a19e96;
+  --color-line: #cfccc4;
+  --color-concrete: #e9e7e2;
+  --color-bone: #f4f3ef;
+  --color-sheet: #ffffff;
+
+  /* Overtop red */
+  --color-brand: #dc0023;
+  --color-brand-hover: #b5101f;
+  --color-brand-pressed: #6e1a26;
+  --color-crimson: #a21224; /* small red text on light grounds */
+  --color-flare: #ff4d5e; /* red text on ink */
+  --color-blush: #fbe3e6;
+
+  --header-height: 4.25rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html:lang(ar) body {
+    font-family: var(--font-arabic);
+  }
+
+  body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  section[id] {
+    scroll-margin-top: var(--header-height);
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ---------- Type roles ---------- */
+
+/* Condensed, heavy, uppercase — like stencilled container codes. */
+@utility display-hero {
+  font-stretch: 64%;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 12.5vw, 11.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    font-stretch: normal;
+    font-size: clamp(2.75rem, 8vw, 6.5rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+/* Section-closing statements, e.g. the contact headline on red. */
+@utility display-xl {
+  font-stretch: 66%;
+  font-weight: 800;
+  font-size: clamp(3.25rem, 8vw, 7rem);
+  line-height: 0.86;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    font-stretch: normal;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.25;
+    text-transform: none;
+  }
+}
+
+@utility display-l {
+  font-stretch: 70%;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    font-stretch: normal;
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+    line-height: 1.3;
+    text-transform: none;
+  }
+}
+
+@utility display-m {
+  font-stretch: 72%;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    font-stretch: normal;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height: 1.35;
+    text-transform: none;
+  }
+}
+
+/* Big index numerals (01–04). Digits stay in Archivo in both languages. */
+@utility numeral {
+  font-family: var(--font-sans);
+  font-stretch: 64%;
+  font-weight: 800;
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The "paperwork" voice: section markers and field labels. */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    font-size: 0.8125rem;
+  }
+}
+
+/* Codes, phone numbers, port codes — always mono, always LTR. */
+@utility code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+
+/* Buttons and nav CTAs. */
+@utility action-type {
+  font-stretch: 85%;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  &:lang(ar) {
+    font-family: var(--font-arabic);
+    font-stretch: normal;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
