@@ -16,11 +16,11 @@ export function ServicesIndex() {
     <section aria-labelledby="services-title" className="py-16 sm:py-24">
       <Container>
         <SectionMarker number="00" label={t.servicesIndex.label} altLabel={alt.servicesIndex.label} />
-        <h2 id="services-title" className="display-l max-w-[48rem] pt-8 pb-10">
+        <h2 id="services-title" data-reveal className="display-l max-w-[48rem] pt-8 pb-10">
           {t.servicesIndex.title}
         </h2>
 
-        <ol className="border-t border-ink">
+        <ol data-reveal className="border-t border-ink">
           {serviceIds.map((id, index) => {
             const service = t.services[id]
             const last = index === serviceIds.length - 1

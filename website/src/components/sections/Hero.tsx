@@ -10,7 +10,7 @@ export function Hero() {
   const mobile = site.phones[1]
 
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden border-b border-ink">
+    <section id="hero" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-ink">
       <Container className="relative pt-10 sm:pt-14">
         <div className="label flex flex-wrap justify-between gap-3 border-t-2 border-ink pt-3">
           <span>{t.hero.eyebrow}</span>

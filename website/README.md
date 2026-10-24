@@ -37,7 +37,10 @@ src/
 
 ## Languages
 
-- `?lang=ar` opens the Arabic version; the visitor's choice is remembered.
+- English is served at `/`, Arabic at `/ar/` (old `?lang=ar` links redirect there).
+- `npm run build` pre-renders both pages (`scripts/prerender.mjs`) with their search and share tags (`src/seo/head.ts`) and writes `sitemap.xml` + `robots.txt`.
+- The public address lives in `.env` (`VITE_SITE_URL`).
+- Share cards and app icons: edit `scripts/share-card/card.html`, then run `python scripts/share-card/make_share_images.py`.
 - `Dictionary` in `src/i18n/types.ts` is the contract: a missing translation is a build error.
 - Use logical Tailwind classes (`ms-`, `pe-`, `border-s`, `ltr:` / `rtl:`) instead of left/right so the layout mirrors on its own.
 - Phone numbers, codes and emails use the `code` utility, which keeps them left-to-right inside Arabic text.

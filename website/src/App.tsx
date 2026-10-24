@@ -1,5 +1,6 @@
 import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
+import { MobileContactBar } from './components/layout/MobileContactBar'
 import { UtilityBar } from './components/layout/UtilityBar'
 import { About } from './components/sections/About'
 import { Contact } from './components/sections/Contact'
@@ -8,10 +9,12 @@ import { RouteSteps } from './components/sections/RouteSteps'
 import { ServicesIndex } from './components/sections/ServicesIndex'
 import { ServiceSection } from './components/sections/ServiceSection'
 import { TradeLanes } from './components/sections/TradeLanes'
+import { useReveal } from './hooks/useReveal'
 import { useI18n } from './i18n/context'
 
 export default function App() {
   const { t } = useI18n()
+  useReveal()
 
   return (
     <>
@@ -37,6 +40,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <MobileContactBar />
     </>
   )
 }

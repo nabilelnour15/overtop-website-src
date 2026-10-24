@@ -18,7 +18,7 @@ export function TradeLanes() {
     <section aria-labelledby="lanes-title" className="bg-ink text-bone">
       <Container className="pt-16 pb-10 sm:pt-24 sm:pb-14">
         <SectionMarker number={site.portCode} label={t.network.label} altLabel={alt.network.label} tone="dark" />
-        <div className="grid gap-6 pt-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-end md:gap-12">
+        <div data-reveal className="grid gap-6 pt-8 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-end md:gap-12">
           <h2 id="lanes-title" className="display-l">
             {t.network.title}
           </h2>

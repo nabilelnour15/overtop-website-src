@@ -22,15 +22,15 @@ export function Footer() {
           />
 
           <div className="grid gap-8 border-t border-deck pt-5 sm:grid-cols-3">
-            <nav aria-label={t.a11y.primaryNav} className="flex flex-col gap-2">
+            <nav aria-label={t.a11y.primaryNav} className="flex flex-col">
               {sectionIds.map((id) => (
-                <a key={id} href={`#${id}`} className="w-fit text-bone hover:text-flare">
+                <a key={id} href={`#${id}`} className="w-fit py-1.5 text-bone hover:text-flare">
                   {t.nav[id]}
                 </a>
               ))}
             </nav>
             <div className="flex flex-col gap-2">
-              <span className="label text-[11px]">{t.contact.details.office}</span>
+              <span className="label">{t.contact.details.office}</span>
               <a
                 href={site.address.mapUrl}
                 target="_blank"
@@ -43,14 +43,14 @@ export function Footer() {
               </a>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="label text-[11px]">{t.contact.details.phone}</span>
+              <span className="label">{t.contact.details.phone}</span>
               {site.phones.map((phone) => (
-                <a key={phone.href} href={phone.href} className="code w-fit text-[15px] text-bone hover:text-flare">
+                <a key={phone.href} href={phone.href} className="code w-fit py-1.5 text-[15px] text-bone hover:text-flare">
                   {phone.display}
                 </a>
               ))}
-              <span className="label mt-3 text-[11px]">{t.contact.details.email}</span>
-              <a href={`mailto:${site.email}`} className="code w-fit text-[15px] text-flare hover:underline">
+              <span className="label mt-3">{t.contact.details.email}</span>
+              <a href={`mailto:${site.email}`} className="code w-fit py-1.5 text-[15px] text-flare hover:underline">
                 {site.email}
               </a>
             </div>
@@ -64,10 +64,14 @@ export function Footer() {
           {site.address.city}
         </p>
 
-        <div className="code flex flex-wrap justify-between gap-3 border-t border-deck pt-4 text-[11px] tracking-[0.04em] uppercase">
-          <span>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-deck pt-4">
+          <span className="code text-xs tracking-[0.04em] uppercase">
             © {year} {site.name} · {t.footer.rights}
           </span>
+          <a href="#top" className="label flex min-h-11 items-center gap-2 text-bone hover:text-flare sm:min-h-0">
+            <span aria-hidden="true" className="size-0 border-x-[5px] border-b-[8px] border-x-transparent border-b-brand" />
+            {t.a11y.backToTop}
+          </a>
         </div>
       </Container>
     </footer>

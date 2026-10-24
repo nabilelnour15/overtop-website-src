@@ -2,9 +2,20 @@ import type { Dictionary } from './types'
 
 export const en: Dictionary = {
   meta: {
-    title: 'Overtop | Export, Import, Transport & Customs Services · Alexandria',
+    title: 'Overtop | Customs Clearance, Import, Export & Transport · Alexandria, Egypt',
     description:
-      'Overtop clears, moves and delivers cargo through Alexandria, Egypt: import, export, inland transport and customs clearance handled by one team.',
+      'Customs clearance, import, export and inland trucking through Alexandria port, Egypt. One team for the paperwork, the port and the road. Get a quote.',
+    ogLocale: 'en_US',
+    shareTitle: 'Overtop | Customs clearance & freight through Alexandria',
+    shareDescription:
+      'Import, export, customs clearance and port-to-door trucking in Alexandria, Egypt. One team, one quote.',
+    shareImageAlt: 'Overtop: from the quay to your door. Customs clearance, import, export and transport in Alexandria, Egypt.',
+    serviceNames: {
+      import: 'Import clearance & delivery',
+      export: 'Export clearance & shipping',
+      transport: 'Container trucking & inland transport',
+      customs: 'Customs clearance',
+    },
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -12,6 +23,8 @@ export const en: Dictionary = {
     closeMenu: 'Close menu',
     primaryNav: 'Primary',
     home: 'Overtop: back to top',
+    backToTop: 'Back to top',
+    quickContact: 'Quick contact',
   },
   nav: {
     import: 'Import',
@@ -248,6 +261,16 @@ export const en: Dictionary = {
       sendWhatsapp: 'Send on WhatsApp',
       note: 'Both buttons open your own email or WhatsApp app with the message ready to send.',
       emailSubject: 'Quote request',
+      errors: {
+        name: 'Please enter your name.',
+        phone: 'Please enter a phone number we can call back (at least 7 digits).',
+      },
+      sent: {
+        title: 'Your email app should open now.',
+        body: 'Nothing opened? Send the same message on WhatsApp, or copy our address into your own email.',
+        copyEmail: 'Copy email address',
+        copied: 'Copied',
+      },
     },
     details: {
       office: 'Office',
