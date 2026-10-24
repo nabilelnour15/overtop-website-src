@@ -12,7 +12,7 @@ export function About() {
       <Container>
         <SectionMarker number="05" label={about.label} altLabel={alt.about.label} />
 
-        <div className="grid gap-10 pt-8 lg:grid-cols-12 lg:gap-10">
+        <div data-reveal className="grid gap-10 pt-8 lg:grid-cols-12 lg:gap-10">
           <div className="flex flex-col gap-6 lg:col-span-7">
             <h2 id="about-title" className="display-l">
               {about.title}
@@ -31,7 +31,7 @@ export function About() {
         </div>
 
         <h3 className="label mt-16 mb-4 text-slate">{about.principlesHeading}</h3>
-        <ul className="grid border-t-2 border-ink sm:grid-cols-2 lg:grid-cols-4">
+        <ul data-reveal className="grid border-t-2 border-ink sm:grid-cols-2 lg:grid-cols-4">
           {about.principles.map((principle, index) => (
             <li
               key={principle.title}

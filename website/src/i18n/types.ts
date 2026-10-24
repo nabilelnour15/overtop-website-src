@@ -26,13 +26,30 @@ export interface ServiceCopy {
  * is a type error rather than a blank on the page.
  */
 export interface Dictionary {
-  meta: { title: string; description: string }
+  /**
+   * Search and share copy. Worded for what people type into Google
+   * ("customs clearance", "تخليص جمركي"), which can differ from the on-page names.
+   */
+  meta: {
+    title: string
+    description: string
+    /** og:locale, e.g. en_US. */
+    ogLocale: string
+    shareTitle: string
+    shareDescription: string
+    shareImageAlt: string
+    /** Service names in the structured data, in search wording. */
+    serviceNames: Record<ServiceId, string>
+  }
   a11y: {
     skipToContent: string
     openMenu: string
     closeMenu: string
     primaryNav: string
     home: string
+    backToTop: string
+    /** Label for the sticky call/WhatsApp bar on phones. */
+    quickContact: string
   }
   nav: Record<SectionId, string>
   languageSwitch: { label: string; target: Locale; short: string }
@@ -84,6 +101,14 @@ export interface Dictionary {
       sendWhatsapp: string
       note: string
       emailSubject: string
+      errors: { name: string; phone: string }
+      /** Shown after "Send by email", in case no mail app opens. */
+      sent: {
+        title: string
+        body: string
+        copyEmail: string
+        copied: string
+      }
     }
     details: {
       office: string

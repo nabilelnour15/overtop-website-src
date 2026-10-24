@@ -36,7 +36,7 @@ export function ServiceSection({ id, tone = 'bone', flip = false, footer }: Serv
           tone={dark ? 'dark' : 'light'}
         />
 
-        <div className="grid gap-6 pt-8 pb-12 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
+        <div data-reveal className="grid gap-6 pt-8 pb-12 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-16">
           <h2 id={`${id}-title`} className="display-l lg:col-span-7">
             {service.title}
           </h2>
@@ -50,7 +50,7 @@ export function ServiceSection({ id, tone = 'bone', flip = false, footer }: Serv
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
+        <div data-reveal className="grid gap-10 lg:grid-cols-12 lg:gap-10">
           <div className={cn('lg:col-span-7', flip && 'lg:order-2')}>
             <h3 className={cn('label mb-4', dark ? 'text-fog' : 'text-slate')}>{service.scopeHeading}</h3>
             <ol className={cn('border-t-2', dark ? 'border-bone' : 'border-ink')}>
@@ -90,7 +90,7 @@ export function ServiceSection({ id, tone = 'bone', flip = false, footer }: Serv
           </div>
         </div>
 
-        {footer && <div className="pt-16 sm:pt-20">{footer}</div>}
+        {footer && <div data-reveal className="pt-16 sm:pt-20">{footer}</div>}
       </Container>
     </section>
   )

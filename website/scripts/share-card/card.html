@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  1200×630 link-preview card. Rendered by make_share_images.py with ?lang=en / ?lang=ar.
+  Everything important sits in the centre square, because WhatsApp crops
+  previews to a square thumbnail.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..900&family=IBM+Plex+Mono:wght@400;600&family=Alexandria:wght@500;800&display=block"
+    />
+    <style>
+      * { margin: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; background: #111113; }
+      .card { position: relative; width: 1200px; height: 630px; color: #fff; font-family: 'Archivo', sans-serif; }
+      .photo {
+        position: absolute; inset: 0;
+        background: url('../../public/images/hero.webp') 50% 62% / cover no-repeat;
+      }
+      .shade {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 620px 420px at 50% 50%, rgba(17,17,19,.86), rgba(17,17,19,.55) 70%, rgba(17,17,19,.35));
+      }
+      .content {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; gap: 22px;
+      }
+      .logo { height: 150px; }
+      h1 {
+        font-stretch: 64%; font-weight: 800; text-transform: uppercase;
+        font-size: 92px; line-height: .86; letter-spacing: -0.01em;
+      }
+      h1 em { font-style: normal; color: #ff4d5e; }
+      .rule { width: 72px; height: 6px; background: #dc0023; }
+      .services {
+        font-family: 'IBM Plex Mono', monospace; font-size: 19px; letter-spacing: .06em; text-transform: uppercase;
+      }
+      .place { font-family: 'IBM Plex Mono', monospace; font-size: 17px; letter-spacing: .06em; color: #cfccc4; }
+      .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: #dc0023; }
+
+      [lang='ar'] .card { font-family: 'Alexandria', sans-serif; }
+      [lang='ar'] h1 { font-stretch: normal; font-size: 68px; line-height: 1.2; text-transform: none; }
+      [lang='ar'] .services { font-family: 'Alexandria', sans-serif; font-size: 22px; letter-spacing: 0; font-weight: 500; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="photo"></div>
+      <div class="shade"></div>
+      <div class="content">
+        <img class="logo" src="../../public/brand/overtop-logo-reverse.png" alt="" />
+        <h1 id="title"></h1>
+        <div class="rule"></div>
+        <p class="services" id="services"></p>
+        <p class="place">overtopcompany.com · EGALY</p>
+      </div>
+      <div class="bar"></div>
+    </div>
+    <script>
+      const copy = {
+        en: {
+          title: 'From the quay<br />to your <em>door.</em>',
+          services: 'Customs clearance · Import · Export · Transport',
+        },
+        ar: {
+          title: 'من الميناء<br />إلى <em>بابك.</em>',
+          services: 'تخليص جمركي · استيراد · تصدير · نقل',
+        },
+      }
+      const lang = new URLSearchParams(location.search).get('lang') === 'ar' ? 'ar' : 'en'
+      document.documentElement.lang = lang
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
+      document.getElementById('title').innerHTML = copy[lang].title
+      document.getElementById('services').textContent = copy[lang].services
+    </script>
+  </body>
+</html>

@@ -8,7 +8,7 @@ export function UtilityBar() {
   const [landline] = site.phones
   return (
     <div className="hidden bg-ink text-fog md:block">
-      <Container className="label flex justify-between gap-4 py-2 text-[11px]">
+      <Container className="label flex justify-between gap-4 py-2">
         <span>
           {t.contact.details.address.join(' · ')}
         </span>

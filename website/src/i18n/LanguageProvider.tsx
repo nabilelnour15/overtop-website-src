@@ -1,36 +1,19 @@
 import { useCallback, useLayoutEffect, useMemo, useState, type ReactNode } from 'react'
-import { ar } from './ar'
-import { en } from './en'
 import { LanguageContext, type LanguageContextValue } from './context'
-import { locales, type Dictionary, type Locale } from './types'
+import { dictionaries, localeDir, localePath } from './locales'
+import type { Locale } from './types'
 
-const dictionaries: Record<Locale, Dictionary> = { en, ar }
-const rtlLocales: ReadonlySet<Locale> = new Set(['ar'])
-const STORAGE_KEY = 'overtop.locale'
-
-function isLocale(value: unknown): value is Locale {
-  return typeof value === 'string' && (locales as readonly string[]).includes(value)
-}
-
-/** URL (?lang=ar) wins, then the visitor's last choice, then English. */
-function readInitialLocale(): Locale {
-  const fromUrl = new URLSearchParams(window.location.search).get('lang')
-  if (isLocale(fromUrl)) return fromUrl
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    if (isLocale(stored)) return stored
-  } catch {
-    // Storage can be blocked; English is a fine fallback.
-  }
-  return 'en'
-}
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(readInitialLocale)
+/**
+ * The page's language comes from its URL (/ or /ar/), so the pre-rendered HTML
+ * and the first client render always agree. Switching swaps the text in place
+ * and moves the address to the other language's page.
+ */
+export function LanguageProvider({ initialLocale, children }: { initialLocale: Locale; children: ReactNode }) {
+  const [locale, setLocale] = useState<Locale>(initialLocale)
   const t = dictionaries[locale]
-  const dir = rtlLocales.has(locale) ? 'rtl' : 'ltr'
+  const dir = localeDir(locale)
 
-  // Keep <html>, the title and the shareable URL in step with the language.
+  // Keep <html>, the title and the address in step with the language.
   // Layout effect: direction must be set before first paint, or Arabic flashes LTR.
   useLayoutEffect(() => {
     const root = document.documentElement
@@ -39,25 +22,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.title = t.meta.title
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.meta.description)
 
-    const url = new URL(window.location.href)
-    if (locale === 'en') url.searchParams.delete('lang')
-    else url.searchParams.set('lang', locale)
-    window.history.replaceState(null, '', url)
+    const path = localePath(locale)
+    if (window.location.pathname !== path) {
+      window.history.replaceState(null, '', path + window.location.hash)
+    }
   }, [locale, dir, t])
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next)
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next)
-    } catch {
-      // Ignore: the choice still applies for this visit.
-    }
-  }, [])
+  const switchLocale = useCallback((next: Locale) => setLocale(next), [])
 
   const value = useMemo<LanguageContextValue>(() => {
     const altLocale: Locale = locale === 'en' ? 'ar' : 'en'
-    return { locale, dir, t, setLocale, altLocale, alt: dictionaries[altLocale] }
-  }, [locale, dir, t, setLocale])
+    return { locale, dir, t, setLocale: switchLocale, altLocale, alt: dictionaries[altLocale] }
+  }, [locale, dir, t, switchLocale])
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
