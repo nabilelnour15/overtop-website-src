@@ -57,3 +57,5 @@ The form has no server. **Send by email** opens the visitor's mail app with the 
 ## Deploying
 
 `npm run build` produces static files in `dist/` that work on any static host (Netlify, Vercel, Cloudflare Pages, cPanel).
+
+This source repo (`overtop-website-src`) is private. The live site is served by GitHub Pages from the public `nabilelnour15/overtop-website` repo, which holds only the contents of `dist/` (plus an empty `.nojekyll`). `.github/workflows/deploy.yml` builds on every push to `main` and publishes there once the `PAGES_DEPLOY_KEY` secret is set (see the comment at the top of that file); until then, push a fresh `dist/` to that repo by hand.

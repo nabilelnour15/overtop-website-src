@@ -1,4 +1,7 @@
-# Builds the site in website/ and publishes it to GitHub Pages on every push to main.
+# Builds the site in website/ on every push to main and publishes the built files to the
+# public nabilelnour15/overtop-website repo, which serves them on GitHub Pages.
+# This source repo is private; publishing needs a write deploy key on the public repo whose
+# private half is stored here as the PAGES_DEPLOY_KEY secret. Without it the build still runs.
 name: Deploy to GitHub Pages
 
 on:
@@ -8,19 +11,16 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: website
+    env:
+      PAGES_DEPLOY_KEY: ${{ secrets.PAGES_DEPLOY_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,17 +29,21 @@ jobs:
           cache: npm
           cache-dependency-path: website/package-lock.json
       - run: npm ci
+        working-directory: website
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: website/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+        working-directory: website
+      - name: Publish to the public repo
+        if: env.PAGES_DEPLOY_KEY != ''
+        run: |
+          mkdir -p ~/.ssh
+          echo "$PAGES_DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          cd website/dist
+          touch .nojekyll
+          git init -q -b main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish built site from overtop-website-src@${GITHUB_SHA::7}"
+          git push --force git@github.com:nabilelnour15/overtop-website.git main
