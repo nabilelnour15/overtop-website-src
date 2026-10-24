@@ -39,6 +39,7 @@
         font-family: 'IBM Plex Mono', monospace; font-size: 19px; letter-spacing: .06em; text-transform: uppercase;
       }
       .place { font-family: 'IBM Plex Mono', monospace; font-size: 17px; letter-spacing: .06em; color: #cfccc4; }
+      [lang='ar'] .place { font-family: 'Alexandria', sans-serif; font-size: 19px; letter-spacing: 0; }
       .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: #dc0023; }
 
       [lang='ar'] .card { font-family: 'Alexandria', sans-serif; }
@@ -55,7 +56,7 @@
         <h1 id="title"></h1>
         <div class="rule"></div>
         <p class="services" id="services"></p>
-        <p class="place">overtopcompany.com · EGALY</p>
+        <p class="place" id="place"></p>
       </div>
       <div class="bar"></div>
     </div>
@@ -64,10 +65,12 @@
         en: {
           title: 'From the quay<br />to your <em>door.</em>',
           services: 'Customs clearance · Import · Export · Transport',
+          place: 'Alexandria, Egypt · EGALY',
         },
         ar: {
           title: 'من الميناء<br />إلى <em>بابك.</em>',
           services: 'تخليص جمركي · استيراد · تصدير · نقل',
+          place: 'الإسكندرية، مصر · EGALY',
         },
       }
       const lang = new URLSearchParams(location.search).get('lang') === 'ar' ? 'ar' : 'en'
@@ -75,6 +78,7 @@
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr'
       document.getElementById('title').innerHTML = copy[lang].title
       document.getElementById('services').textContent = copy[lang].services
+      document.getElementById('place').textContent = copy[lang].place
     </script>
   </body>
 </html>
