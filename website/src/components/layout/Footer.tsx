@@ -59,7 +59,7 @@ export function Footer() {
 
         <p
           aria-hidden="true"
-          className="numeral overflow-hidden text-[clamp(4.5rem,17vw,15.5rem)] font-black whitespace-nowrap text-hull uppercase"
+          className="numeral overflow-hidden text-[clamp(4rem,15vw,13rem)] font-black whitespace-nowrap text-hull uppercase"
         >
           {site.address.city}
         </p>
