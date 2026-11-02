@@ -2,19 +2,19 @@ import type { Dictionary } from './types'
 
 export const en: Dictionary = {
   meta: {
-    title: 'Overtop | Customs Clearance, Import, Export & Transport · Alexandria, Egypt',
+    title: 'Overtop | Import, Export, Customs Clearance & Freight in Egypt · Since 2017',
     description:
-      'Customs clearance, import, export and inland trucking through Alexandria port, Egypt. One team for the paperwork, the port and the road. Get a quote.',
+      'Import, export, customs clearance and consulting, sea and air freight and door-to-door transport through every Egyptian port, since 2017. One team for the paperwork, the port and the road. Get a quote.',
     ogLocale: 'en_US',
-    shareTitle: 'Overtop | Customs clearance & freight through Alexandria',
+    shareTitle: 'Overtop | Import, export, customs & freight across Egypt',
     shareDescription:
-      'Import, export, customs clearance and port-to-door trucking in Alexandria, Egypt. One team, one quote.',
-    shareImageAlt: 'Overtop: from the quay to your door. Customs clearance, import, export and transport in Alexandria, Egypt.',
+      'Sea and air freight, customs clearance and consulting, import, export and door-to-door transport through every Egyptian port. Since 2017.',
+    shareImageAlt: 'Overtop: every Egyptian port, straight to your door. Import, export, customs and transport since 2017.',
     serviceNames: {
       import: 'Import clearance & delivery',
       export: 'Export clearance & shipping',
-      transport: 'Container trucking & inland transport',
-      customs: 'Customs clearance',
+      transport: 'Freight, logistics & transport',
+      customs: 'Customs clearance & consulting',
     },
   },
   a11y: {
@@ -29,7 +29,7 @@ export const en: Dictionary = {
   nav: {
     import: 'Import',
     export: 'Export',
-    transport: 'Transportation',
+    transport: 'Transport & Logistics',
     customs: 'Custom Services',
     about: 'About Us',
     contact: 'Contact Us',
@@ -42,23 +42,24 @@ export const en: Dictionary = {
     details: 'Details',
   },
   hero: {
-    eyebrow: 'Export · Import · Transport · Custom services',
-    titleLines: ['From the quay', 'to your'],
+    titleLines: ['Every port.', 'Straight to your'],
     titleAccent: 'door.',
-    lede: 'Overtop clears, moves and delivers cargo through Alexandria. One team accountable for the paperwork, the port and the road.',
-    imageAlt: 'Overtop truck carrying a container at Alexandria port',
+    lede: 'Since 2017, Overtop has cleared, moved and delivered cargo by sea, air and road through every port in Egypt. One team accountable for the paperwork, the port and the road.',
+    imageAlt: 'A container ship arriving at a port with gantry cranes, and a cargo aircraft overhead',
   },
   network: {
-    label: 'Trade lanes',
-    title: 'One port. Lanes to four continents.',
-    lede: 'Cargo for Europe, the Gulf, Asia, Africa and the Americas sails from Alexandria. We handle the paperwork and the port on this end, and the truck to your door.',
+    title: 'All Egyptian ports. Lanes to every continent.',
+    lede: 'Sea and air cargo leaves Egypt for Europe, the Gulf, Asia, Africa, the Americas and Australia. We handle the paperwork and the port on this end, and the truck to your door.',
     mapLabel:
-      'Map of common sea lanes from Alexandria to Rotterdam, Antwerp, Hamburg, Genoa, Valencia, Piraeus, Istanbul, New York, Jeddah, Jebel Ali, Mumbai, Mombasa, Colombo, Singapore, Hong Kong, Shanghai and Busan, with the road to Cairo.',
-    legend: { origin: 'Alexandria', sea: 'Common sea lanes', road: 'Our trucks, inland' },
-    hint: 'Move across the map to look closer. Tap to send a ping.',
+      'Rotating globe with sea lanes from the Egyptian ports of Port Said, Damietta, Ain Sokhna and Safaga, and air lanes from Cairo, to ports in Europe, the Americas, Africa, the Gulf, Asia and Australia.',
+    legend: { egypt: 'Egyptian ports', sea: 'Sea lanes', air: 'Air lanes' },
+    hint: 'Drag to turn the globe.',
     ports: {
-      alexandria: 'Alexandria',
-      cairo: 'Cairo',
+      portSaid: 'Port Said',
+      damietta: 'Damietta',
+      sokhna: 'Ain Sokhna',
+      safaga: 'Safaga',
+      cairo: 'Cairo Airport',
       rotterdam: 'Rotterdam',
       antwerp: 'Antwerp',
       hamburg: 'Hamburg',
@@ -67,6 +68,11 @@ export const en: Dictionary = {
       piraeus: 'Piraeus',
       istanbul: 'Istanbul',
       newYork: 'New York',
+      houston: 'Houston',
+      santos: 'Santos',
+      vancouver: 'Vancouver',
+      lagos: 'Lagos',
+      durban: 'Durban',
       jeddah: 'Jeddah',
       jebelAli: 'Jebel Ali',
       mumbai: 'Mumbai',
@@ -76,16 +82,18 @@ export const en: Dictionary = {
       hongKong: 'Hong Kong',
       shanghai: 'Shanghai',
       busan: 'Busan',
+      tokyo: 'Tokyo',
+      sydney: 'Sydney',
     },
   },
   servicesIndex: {
-    label: 'Services',
     title: 'Use one service. Or hand us the whole chain.',
   },
   services: {
     import: {
       name: 'Import',
-      title: 'Import into Egypt, without the waiting.',
+      title: 'Import into Egypt,',
+      titleAccent: 'without the waiting.',
       lede: 'We prepare the file before your goods sail, settle duties and clear the cargo at port, then deliver it to your warehouse.',
       scopeHeading: 'What we handle',
       scope: [
@@ -106,21 +114,12 @@ export const en: Dictionary = {
           body: 'Our trucks take the cargo from the port to your door.',
         },
       ],
-      documents: {
-        heading: 'Documents we prepare with you',
-        items: [
-          'ACID number (Advance Cargo Information)',
-          'Commercial invoice & packing list',
-          'Bill of lading / air waybill',
-          'Certificate of origin',
-          'Import approvals & permits, where required',
-        ],
-      },
-      imageAlt: 'Containers being unloaded at Alexandria port',
+      imageAlt: 'A gantry crane lifting a container off a ship at an Egyptian port',
     },
     export: {
       name: 'Export',
-      title: 'Egyptian goods, out to the world.',
+      title: 'Egyptian goods,',
+      titleAccent: 'out to the world.',
       lede: 'Export declarations, certificates and bookings handled from your factory gate to the vessel.',
       scopeHeading: 'What we handle',
       scope: [
@@ -134,56 +133,103 @@ export const en: Dictionary = {
         },
         {
           title: 'Booking & loading',
-          body: 'Space with the shipping line, empty container pick-up and loading at your site.',
+          body: 'Space with the shipping line or airline, empty container pick-up and loading at your site.',
         },
         {
           title: 'Port handling',
           body: 'Gate-in, inspection and loading on the vessel, with the bill of lading sent to you.',
         },
       ],
-      documents: {
-        heading: 'Documents we prepare with you',
-        items: [
-          'Commercial invoice & packing list',
-          'Export declaration',
-          'Certificate of origin',
-          'Bill of lading',
-          'Product certificates, where the buyer requires them',
+      // TODO: confirm the standard with the factory's mill certificate. EN 12166 is the standard for copper
+      // wire for general purposes; 8 mm continuous-cast rod is usually specified to EN 1977 (CW004A).
+      product: {
+        heading: 'Featured product',
+        name: 'Copper wire rod, 8 mm',
+        standard: 'EN 12166',
+        description:
+          'Bright copper wire rod in 8 mm coils, for drawing into electrical wire and cable. We prepare the export file, the certificates, the packing and the shipment through any Egyptian port.',
+        specs: [
+          { label: 'Product', value: 'Copper wire rod' },
+          { label: 'Diameter', value: '8 mm' },
+          { label: 'Standard', value: 'EN 12166' },
+          { label: 'Material', value: 'Electrolytic copper (Cu-ETP), 99.90% Cu min.' },
+          { label: 'Form', value: 'Coils on wooden pallets' },
+          { label: 'Packing', value: 'Strapped and wrapped for sea freight' },
+          { label: 'Use', value: 'Drawing into electrical wire and cable' },
+          { label: 'Shipped from', value: 'Any Egyptian port' },
+        ],
+        cta: 'Request a quote for this product',
+        imageAlt: 'Pallets of strapped copper wire rod coils in a warehouse',
+        galleryAlts: [
+          'Close-up of the winding of a copper wire rod coil',
+          'Copper wire rod coils wrapped in film and strapped on pallets',
+          'A worker checking copper coils packed in a wooden crate',
         ],
       },
-      imageAlt: 'Truck with a red container arriving at the terminal gate',
+      imageAlt: 'A forklift loading copper coils into a container beside a ship',
     },
     transport: {
-      name: 'Transportation',
-      title: 'Our trucks. Port to door.',
-      lede: 'Inland trucking and container haulage between the port, your factory and your warehouse.',
+      name: 'Transport & Logistics',
+      title: 'Every mode.',
+      titleAccent: 'Door to door.',
+      lede: 'Sea, air and road freight, with the containers, packing and lashing that go with it, from your door to the port or all the way to the buyer.',
       scopeHeading: 'What we handle',
       scope: [
         {
-          title: 'Container haulage',
-          body: '20 ft and 40 ft containers to and from the Alexandria port terminals.',
+          title: 'Door to door',
+          body: 'One shipment, one team, from the sender’s door to the receiver’s door.',
         },
         {
-          title: 'Port-to-door delivery',
+          title: 'Port to door',
           body: 'Cleared cargo goes straight from the terminal to your address, with no hand-over to another company.',
         },
         {
-          title: 'Loading coordination',
-          body: 'We schedule the truck with your warehouse so loading and unloading happen on time.',
+          title: 'Door to port',
+          body: 'Pick-up at your factory or warehouse and delivery to the terminal in time for the cut-off.',
         },
         {
-          title: 'Updates on the way',
-          body: 'You hear from us at every stop, by phone or WhatsApp.',
+          title: 'Cargo handling',
+          body: 'Loading, unloading and moving your cargo with the right equipment, checked at every stage.',
+        },
+        {
+          title: 'Containers',
+          body: '20 ft and 40 ft containers, standard and high-cube, to and from every Egyptian port.',
+        },
+        {
+          title: 'Packing',
+          body: 'Export packing, palletising and wrapping that suits the cargo and the journey.',
+        },
+        {
+          title: 'Lashing & securing',
+          body: 'Cargo lashed, blocked and braced inside the container and on the truck, so it arrives as it left.',
+        },
+        {
+          title: 'Sea freight',
+          body: 'Full and part container loads, bulk and break-bulk, booked with the major shipping lines.',
+        },
+        {
+          title: 'Air freight',
+          body: 'Urgent and high-value cargo by air from Egyptian airports, with the customs file ready.',
+        },
+        {
+          title: 'Road & inland haulage',
+          body: 'Our trucks between the ports, your factory and your warehouse, with updates by phone or WhatsApp.',
         },
       ],
-      imageAlt: 'Overtop truck on the road out of Alexandria',
+      imageAlt: 'Overtop truck on a highway at dusk, with a container ship and a cargo aircraft behind',
+      imageAlt2: 'A worker tightening a ratchet strap on crates inside a container',
     },
     customs: {
       name: 'Custom Services',
-      title: 'Customs, handled.',
-      lede: 'Clearance with Egyptian Customs: classification, declarations and inspection, handled by people who do it every day.',
+      title: 'Customs,',
+      titleAccent: 'handled.',
+      lede: 'Clearance and consulting with Egyptian Customs: classification, declarations, inspection and advice, handled by people who do it every day.',
       scopeHeading: 'What we handle',
       scope: [
+        {
+          title: 'Customs consulting',
+          body: 'Advice before you ship: classification, duties, procedures and the documents your goods need.',
+        },
         {
           title: 'Tariff classification',
           body: 'The right HS code for your goods, so the duty is right the first time.',
@@ -201,17 +247,7 @@ export const en: Dictionary = {
           body: 'If a shipment is held, we find out why and resolve it.',
         },
       ],
-      documents: {
-        heading: 'What we need from you',
-        items: [
-          'Commercial invoice',
-          'Packing list',
-          'Bill of lading / air waybill',
-          'Certificate of origin',
-          'Company tax card & commercial register',
-        ],
-      },
-      imageAlt: 'Customs inspection of a container',
+      imageAlt: 'Two inspectors checking packed cartons against a tablet at a container door',
     },
   },
   route: {
@@ -224,10 +260,9 @@ export const en: Dictionary = {
     ],
   },
   about: {
-    label: 'About us',
     title: 'One desk for the paperwork, the port and the road.',
     paragraphs: [
-      'Overtop is an Alexandria company working in export, import, transport and customs services.',
+      'Overtop is an Egyptian company working since 2017 in export, import, transport and customs services, through every port in the country.',
       'Instead of passing your cargo between a customs broker, a forwarder and a trucking company, you deal with one team that sees the whole journey, and answers for it.',
     ],
     principlesHeading: 'How we work',
@@ -235,12 +270,11 @@ export const en: Dictionary = {
       { title: 'One contact', body: 'The same person follows your shipment from the first call to delivery.' },
       { title: 'Price first', body: 'You get a clear quote before we start. No hidden charges at release.' },
       { title: 'Papers early', body: 'Documents are checked before the goods move. That is where delays begin.' },
-      { title: 'Alexandria-based', body: 'Our office is minutes from the port, not a call centre away.' },
+      { title: 'Every port', body: 'We work through all Egyptian ports and airports, not just one.' },
     ],
-    imageAlt: 'The Overtop team at the office in Alexandria',
+    imageAlt: 'An Overtop team member on a call at a desk overlooking a port',
   },
   contact: {
-    label: 'Contact us',
     title: 'Cargo landing soon?',
     lede: 'Tell us what you’re moving. We reply with a price and the exact documents needed.',
     form: {
@@ -251,15 +285,14 @@ export const en: Dictionary = {
       serviceOptions: {
         import: 'Import',
         export: 'Export',
-        transport: 'Transportation',
+        transport: 'Transport & logistics',
         customs: 'Custom services',
         other: 'Not sure yet',
       },
       message: 'Cargo details',
       messagePlaceholder: 'What are you shipping, from where, and when?',
       sendEmail: 'Send by email',
-      sendWhatsapp: 'Send on WhatsApp',
-      note: 'Both buttons open your own email or WhatsApp app with the message ready to send.',
+      note: 'The button opens your own email app with the message ready to send.',
       emailSubject: 'Quote request',
       errors: {
         name: 'Please enter your name.',
@@ -267,7 +300,7 @@ export const en: Dictionary = {
       },
       sent: {
         title: 'Your email app should open now.',
-        body: 'Nothing opened? Send the same message on WhatsApp, or copy our address into your own email.',
+        body: 'Nothing opened? Copy our address into your own email.',
         copyEmail: 'Copy email address',
         copied: 'Copied',
       },
@@ -281,7 +314,6 @@ export const en: Dictionary = {
     },
   },
   footer: {
-    tagline: 'Export · Import · Transport · Custom services',
     rights: 'All rights reserved.',
   },
 }

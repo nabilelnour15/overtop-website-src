@@ -64,7 +64,7 @@ export function ImageSlot({ slot, alt, tone = 'concrete', className, priority, a
               dark ? 'text-deck' : 'text-line',
             )}
           >
-            {site.portCode}
+            {site.countryCode}
           </span>
         </>
       )}

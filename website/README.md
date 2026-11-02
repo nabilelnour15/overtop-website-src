@@ -1,6 +1,6 @@
 # Overtop website
 
-One-page site for Overtop — export, import, transport and custom services, Alexandria.
+One-page site for Overtop — export, import, transport and logistics, and custom services, through every Egyptian port, since 2017.
 English and Arabic (RTL), built on the **Overtop Design System** canvas.
 
 Stack: Vite · React 19 · TypeScript · Tailwind CSS v4. No backend.

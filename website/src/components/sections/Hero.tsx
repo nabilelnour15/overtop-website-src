@@ -6,20 +6,13 @@ import { Container } from '../ui/Container'
 import { ImageSlot } from '../ui/ImageSlot'
 
 export function Hero() {
-  const { t, alt, altLocale } = useI18n()
+  const { t } = useI18n()
   const mobile = site.phones[1]
 
   return (
     <section id="hero" aria-labelledby="hero-title" className="relative overflow-hidden border-b border-ink">
       <Container className="relative pt-10 sm:pt-14">
-        <div className="label flex flex-wrap justify-between gap-3 border-t-2 border-ink pt-3">
-          <span>{t.hero.eyebrow}</span>
-          <span lang={altLocale} className="label hidden opacity-80 sm:inline">
-            {alt.hero.eyebrow}
-          </span>
-        </div>
-
-        <h1 id="hero-title" className="display-hero mt-8 sm:mt-10">
+        <h1 id="hero-title" className="display-hero border-t-2 border-ink pt-8 sm:pt-10">
           {t.hero.titleLines[0]}
           <br />
           {t.hero.titleLines[1]} <span className="text-brand">{t.hero.titleAccent}</span>

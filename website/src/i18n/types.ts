@@ -1,5 +1,5 @@
 import type { SectionId, ServiceId } from '../config/site'
-import type { PortId } from '../content/trade-lanes'
+import type { PortId } from '../content/globe'
 
 export const locales = ['en', 'ar'] as const
 export type Locale = (typeof locales)[number]
@@ -13,12 +13,29 @@ export interface ServiceCopy {
   /** Short name used in the nav and the service index. */
   name: string
   title: string
+  /** The closing part of the title, set in red. */
+  titleAccent: string
   lede: string
   scopeHeading: string
   scope: ScopeItem[]
-  /** Ruled document list. Transport shows the shipment route instead. */
-  documents?: { heading: string; items: string[] }
+  /** A featured product, shown under the scope list. */
+  product?: ProductCopy
   imageAlt: string
+  /** Alt text for a second photo under the first, where a section has one. */
+  imageAlt2?: string
+}
+
+export interface ProductCopy {
+  heading: string
+  name: string
+  /** The standard the product is made to, shown as a tag next to the name. */
+  standard: string
+  description: string
+  specs: Array<{ label: string; value: string }>
+  cta: string
+  imageAlt: string
+  /** Alt text for the three smaller photos: detail, wrapped coils, crate. */
+  galleryAlts: [string, string, string]
 }
 
 /**
@@ -55,30 +72,27 @@ export interface Dictionary {
   languageSwitch: { label: string; target: Locale; short: string }
   cta: { quote: string; call: string; whatsapp: string; details: string }
   hero: {
-    eyebrow: string
     titleLines: [string, string]
     titleAccent: string
     lede: string
     imageAlt: string
   }
   network: {
-    label: string
     title: string
     lede: string
     /** Screen-reader description of the whole chart. */
     mapLabel: string
-    legend: { origin: string; sea: string; road: string }
+    legend: { egypt: string; sea: string; air: string }
     hint: string
     ports: Record<PortId, string>
   }
-  servicesIndex: { label: string; title: string }
+  servicesIndex: { title: string }
   services: Record<ServiceId, ServiceCopy>
   route: {
     heading: string
     steps: ScopeItem[]
   }
   about: {
-    label: string
     title: string
     paragraphs: string[]
     principlesHeading: string
@@ -86,7 +100,6 @@ export interface Dictionary {
     imageAlt: string
   }
   contact: {
-    label: string
     title: string
     lede: string
     form: {
@@ -98,7 +111,6 @@ export interface Dictionary {
       message: string
       messagePlaceholder: string
       sendEmail: string
-      sendWhatsapp: string
       note: string
       emailSubject: string
       errors: { name: string; phone: string }
@@ -119,5 +131,5 @@ export interface Dictionary {
       openMap: string
     }
   }
-  footer: { tagline: string; rights: string }
+  footer: { rights: string }
 }

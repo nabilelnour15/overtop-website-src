@@ -6,7 +6,7 @@
  * (CSS object-position, e.g. '70% 50%' keeps the right side). Prompts for each
  * image are in `../IMAGE-PROMPTS.md` (project root, next to the logo files).
  */
-export type ImageSlotId = 'hero' | 'import' | 'export' | 'transport' | 'customs' | 'about'
+export type ImageSlotId = 'hero' | 'import' | 'export' | 'transport' | 'lashing' | 'customs' | 'about' | 'product' | 'productDetail' | 'productWrapped' | 'productCrate'
 
 export interface SlotImage {
   src: string
@@ -14,10 +14,15 @@ export interface SlotImage {
 }
 
 export const images: Record<ImageSlotId, SlotImage | null> = {
-  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 62%' },
-  import: { src: `${import.meta.env.BASE_URL}images/import.webp`, position: '62% 40%' },
-  export: { src: `${import.meta.env.BASE_URL}images/export.webp`, position: '34% 55%' },
-  transport: { src: `${import.meta.env.BASE_URL}images/transport.webp`, position: '50% 62%' },
-  customs: { src: `${import.meta.env.BASE_URL}images/customs.webp`, position: '22% 55%' },
-  about: { src: `${import.meta.env.BASE_URL}images/about.webp`, position: '80% 45%' },
+  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 60%' },
+  import: { src: `${import.meta.env.BASE_URL}images/import.webp`, position: '48% 50%' },
+  export: { src: `${import.meta.env.BASE_URL}images/export.webp`, position: '60% 50%' },
+  transport: { src: `${import.meta.env.BASE_URL}images/transport.webp`, position: '45% 50%' },
+  lashing: { src: `${import.meta.env.BASE_URL}images/lashing.webp`, position: '60% 50%' },
+  customs: { src: `${import.meta.env.BASE_URL}images/customs.webp`, position: '85% 50%' },
+  about: { src: `${import.meta.env.BASE_URL}images/about.webp`, position: '80% 50%' },
+  product: { src: `${import.meta.env.BASE_URL}images/copper-wire.webp`, position: '50% 50%' },
+  productDetail: { src: `${import.meta.env.BASE_URL}images/copper-detail.webp`, position: '50% 50%' },
+  productWrapped: { src: `${import.meta.env.BASE_URL}images/copper-wrapped.webp`, position: '45% 50%' },
+  productCrate: { src: `${import.meta.env.BASE_URL}images/copper-crate.webp`, position: '55% 50%' },
 }

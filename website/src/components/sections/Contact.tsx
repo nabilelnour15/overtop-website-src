@@ -5,7 +5,6 @@ import { cn } from '../../lib/cn'
 import { buttonStyles } from '../ui/button'
 import { ButtonGlyph } from '../ui/ButtonGlyph'
 import { Container } from '../ui/Container'
-import { WhatsAppIcon } from '../ui/icons'
 import { TriangleOutline } from '../ui/TriangleOutline'
 
 const serviceOptions = [...serviceIds, 'other'] as const
@@ -21,7 +20,7 @@ function findErrors(data: FormData): FieldErrors {
 }
 
 export function Contact() {
-  const { t, alt } = useI18n()
+  const { t } = useI18n()
   const { contact } = t
   const { form } = contact
   const formRef = useRef<HTMLFormElement>(null)
@@ -55,7 +54,7 @@ export function Contact() {
     }
   }
 
-  /** Turns the form into a plain-text message for email or WhatsApp. */
+  /** Turns the form into a plain-text message for email. */
   function composeMessage(data: FormData) {
     const service = form.serviceOptions[data.get('service') as (typeof serviceOptions)[number]]
     const lines = [
@@ -78,14 +77,6 @@ export function Contact() {
     setCopied(false)
   }
 
-  function sendWhatsapp() {
-    const formElement = formRef.current
-    if (!formElement || !validate(formElement)) return
-    const { subject, body } = composeMessage(new FormData(formElement))
-    const text = encodeURIComponent(`${subject}\n\n${body}`)
-    window.open(`https://wa.me/${site.whatsapp}?text=${text}`, '_blank', 'noopener,noreferrer')
-  }
-
   const fieldCell = 'flex flex-col gap-1.5 border-b border-line px-5 py-4 focus-within:bg-bone focus-within:shadow-[inset_3px_0_0_var(--color-ink)] rtl:focus-within:shadow-[inset_-3px_0_0_var(--color-ink)]'
   const invalidCell = 'shadow-[inset_3px_0_0_var(--color-brand)] rtl:shadow-[inset_-3px_0_0_var(--color-brand)]'
   const errorClass = 'text-[13px] leading-snug font-semibold text-crimson'
@@ -103,10 +94,6 @@ export function Contact() {
 
       <Container className="relative grid gap-12 py-16 sm:py-24 lg:grid-cols-12 lg:gap-12">
         <div data-reveal className="flex flex-col gap-6 lg:col-span-5">
-          <p className="label">
-            <span className="code">06</span> · {contact.label} /{' '}
-            <span lang={t.languageSwitch.target}>{alt.contact.label}</span>
-          </p>
           <h2 id="contact-title" className="display-xl">
             {contact.title}
           </h2>
@@ -157,10 +144,7 @@ export function Contact() {
           data-reveal
           className="self-start border border-ink bg-sheet text-ink lg:col-span-7"
         >
-          <h3 className="label flex justify-between border-b border-ink px-5 py-3">
-            <span>{form.heading}</span>
-            <span className="code text-slate">{site.portCode}</span>
-          </h3>
+          <h3 className="label border-b border-ink px-5 py-3">{form.heading}</h3>
 
           <div className="grid sm:grid-cols-2">
             <div className={cn(fieldCell, 'sm:border-e', errors.name && invalidCell)}>
@@ -233,23 +217,12 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2">
+          <div>
             <button type="submit" className={buttonStyles('ink', 'h-16 w-full cursor-pointer justify-between px-5')}>
               {form.sendEmail}
               <span className="text-flare">
                 <ButtonGlyph />
               </span>
-            </button>
-            <button
-              type="button"
-              onClick={sendWhatsapp}
-              className={buttonStyles(
-                'outline',
-                'h-16 w-full cursor-pointer justify-between border-x-0 border-b-0 px-5 sm:border-s-2 sm:border-t-0',
-              )}
-            >
-              {form.sendWhatsapp}
-              <WhatsAppIcon />
             </button>
           </div>
           <div role="status">

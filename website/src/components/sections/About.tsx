@@ -1,18 +1,15 @@
 import { useI18n } from '../../i18n/context'
 import { Container } from '../ui/Container'
 import { ImageSlot } from '../ui/ImageSlot'
-import { SectionMarker } from '../ui/SectionMarker'
 
 export function About() {
-  const { t, alt } = useI18n()
+  const { t } = useI18n()
   const { about } = t
 
   return (
     <section id="about" aria-labelledby="about-title" className="border-t border-ink bg-concrete py-16 sm:py-24">
       <Container>
-        <SectionMarker number="05" label={about.label} altLabel={alt.about.label} />
-
-        <div data-reveal className="grid gap-10 pt-8 lg:grid-cols-12 lg:gap-10">
+        <div data-reveal className="grid gap-10 border-t-2 border-ink pt-8 lg:grid-cols-12 lg:gap-10">
           <div className="flex flex-col gap-6 lg:col-span-7">
             <h2 id="about-title" className="display-l">
               {about.title}

@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <img
             src={`${import.meta.env.BASE_URL}brand/overtop-logo-reverse.png`}
-            alt={`${site.name} | ${t.footer.tagline}`}
+            alt={site.name}
             width={601}
             height={576}
             loading="lazy"
@@ -61,7 +61,7 @@ export function Footer() {
           aria-hidden="true"
           className="numeral overflow-hidden text-[clamp(4rem,15vw,13rem)] font-black whitespace-nowrap text-hull uppercase"
         >
-          {site.address.city}
+          {site.name}
         </p>
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-deck pt-4">
