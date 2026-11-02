@@ -77,11 +77,11 @@ export function Contact() {
     setCopied(false)
   }
 
-  const fieldCell = 'flex flex-col gap-1.5 border-b border-line px-5 py-4 focus-within:bg-bone focus-within:shadow-[inset_3px_0_0_var(--color-ink)] rtl:focus-within:shadow-[inset_-3px_0_0_var(--color-ink)]'
+  const fieldCell = 'flex flex-col gap-1.5 border-b border-line px-5 py-3 focus-within:bg-bone focus-within:shadow-[inset_3px_0_0_var(--color-ink)] rtl:focus-within:shadow-[inset_-3px_0_0_var(--color-ink)]'
   const invalidCell = 'shadow-[inset_3px_0_0_var(--color-brand)] rtl:shadow-[inset_-3px_0_0_var(--color-brand)]'
   const errorClass = 'text-[13px] leading-snug font-semibold text-crimson'
   const labelClass = 'label text-slate'
-  const inputClass = 'w-full bg-transparent py-1 text-[17px] text-ink outline-none placeholder:text-slate'
+  const inputClass = 'min-h-11 w-full bg-transparent py-2 text-[17px] text-ink outline-none placeholder:text-slate'
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden bg-brand text-white">
@@ -101,13 +101,13 @@ export function Contact() {
 
           <dl className="mt-4 grid gap-0 border-t border-white/40">
             <div className="flex flex-col gap-1 border-b border-white/40 py-4">
-              <dt className="label opacity-80">{contact.details.office}</dt>
+              <dt className="label">{contact.details.office}</dt>
               <dd>
                 <a
                   href={site.address.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-white/50 decoration-2 underline-offset-4 hover:decoration-white"
+                  className="inline-block py-2 underline decoration-white/50 decoration-2 underline-offset-4 hover:decoration-white"
                 >
                   {contact.details.address[0]}
                   <br />
@@ -117,7 +117,7 @@ export function Contact() {
               </dd>
             </div>
             <div className="flex flex-col gap-1 border-b border-white/40 py-4">
-              <dt className="label opacity-80">{contact.details.phone}</dt>
+              <dt className="label">{contact.details.phone}</dt>
               <dd className="flex flex-wrap gap-x-6 gap-y-1">
                 {site.phones.map((phone) => (
                   <a key={phone.href} href={phone.href} className="code inline-flex min-h-11 items-center text-[15px] hover:underline">
@@ -127,7 +127,7 @@ export function Contact() {
               </dd>
             </div>
             <div className="flex flex-col gap-1 border-b border-white/40 py-4">
-              <dt className="label opacity-80">{contact.details.email}</dt>
+              <dt className="label">{contact.details.email}</dt>
               <dd>
                 <a href={`mailto:${site.email}`} className="code inline-flex min-h-11 items-center text-[15px] hover:underline">
                   {site.email}

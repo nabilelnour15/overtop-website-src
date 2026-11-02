@@ -8,16 +8,16 @@ export function UtilityBar() {
   const [landline] = site.phones
   return (
     <div className="hidden bg-ink text-fog md:block">
-      <Container className="label flex justify-between gap-4 py-2">
-        <span>
+      <Container className="label flex items-center justify-between gap-4">
+        <span className="py-2">
           {t.contact.details.address.join(' · ')}
         </span>
-        <span className="code flex gap-3">
-          <a href={landline.href} className="text-bone hover:text-flare">
+        <span className="code flex items-center gap-3">
+          <a href={landline.href} className="flex min-h-11 items-center text-bone hover:text-flare">
             {landline.display}
           </a>
           <span aria-hidden="true">·</span>
-          <a href={`mailto:${site.email}`} className="text-bone hover:text-flare">
+          <a href={`mailto:${site.email}`} className="flex min-h-11 items-center text-bone hover:text-flare">
             {site.email}
           </a>
         </span>

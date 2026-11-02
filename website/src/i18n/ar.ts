@@ -39,7 +39,6 @@ export const ar: Dictionary = {
     quote: 'اطلب عرض سعر',
     call: 'اتصل',
     whatsapp: 'واتساب',
-    details: 'التفاصيل',
   },
   hero: {
     titleLines: ['كل الموانئ.', 'مباشرةً إلى'],

@@ -21,36 +21,36 @@ export function Footer() {
             className="h-auto w-36"
           />
 
-          <div className="grid gap-8 border-t border-deck pt-5 sm:grid-cols-3">
+          <div className="grid gap-8 border-t border-deck pt-5 sm:grid-cols-2 lg:grid-cols-3">
             <nav aria-label={t.a11y.primaryNav} className="flex flex-col">
               {sectionIds.map((id) => (
-                <a key={id} href={`#${id}`} className="w-fit py-1.5 text-bone hover:text-flare">
+                <a key={id} href={`#${id}`} className="flex min-h-11 w-fit items-center text-bone hover:text-flare">
                   {t.nav[id]}
                 </a>
               ))}
             </nav>
-            <div className="flex flex-col gap-2">
-              <span className="label">{t.contact.details.office}</span>
+            <div className="flex flex-col">
+              <span className="label mb-1">{t.contact.details.office}</span>
               <a
                 href={site.address.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-fit leading-relaxed text-bone hover:text-flare"
+                className="flex min-h-11 w-fit items-center leading-relaxed text-bone hover:text-flare"
               >
                 {t.contact.details.address[0]}
                 <br />
                 {t.contact.details.address[1]}
               </a>
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="label">{t.contact.details.phone}</span>
+            <div className="flex flex-col sm:col-span-2 lg:col-span-1">
+              <span className="label mb-1">{t.contact.details.phone}</span>
               {site.phones.map((phone) => (
-                <a key={phone.href} href={phone.href} className="code w-fit py-1.5 text-[15px] text-bone hover:text-flare">
+                <a key={phone.href} href={phone.href} className="code flex min-h-11 w-fit items-center text-[15px] text-bone hover:text-flare">
                   {phone.display}
                 </a>
               ))}
               <span className="label mt-3">{t.contact.details.email}</span>
-              <a href={`mailto:${site.email}`} className="code w-fit py-1.5 text-[15px] text-flare hover:underline">
+              <a href={`mailto:${site.email}`} className="code flex min-h-11 max-w-full items-center text-[15px] [overflow-wrap:anywhere] text-flare hover:underline">
                 {site.email}
               </a>
             </div>
@@ -68,7 +68,7 @@ export function Footer() {
           <span className="code text-xs tracking-[0.04em] uppercase">
             © {year} {site.name} · {t.footer.rights}
           </span>
-          <a href="#top" className="label flex min-h-11 items-center gap-2 text-bone hover:text-flare sm:min-h-0">
+          <a href="#top" className="label flex min-h-11 items-center gap-2 text-bone hover:text-flare">
             <span aria-hidden="true" className="size-0 border-x-[5px] border-b-[8px] border-x-transparent border-b-brand" />
             {t.a11y.backToTop}
           </a>

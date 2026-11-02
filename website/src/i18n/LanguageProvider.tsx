@@ -30,10 +30,10 @@ export function LanguageProvider({ initialLocale, children }: { initialLocale: L
 
   const switchLocale = useCallback((next: Locale) => setLocale(next), [])
 
-  const value = useMemo<LanguageContextValue>(() => {
-    const altLocale: Locale = locale === 'en' ? 'ar' : 'en'
-    return { locale, dir, t, setLocale: switchLocale, altLocale, alt: dictionaries[altLocale] }
-  }, [locale, dir, t, switchLocale])
+  const value = useMemo<LanguageContextValue>(
+    () => ({ locale, dir, t, setLocale: switchLocale }),
+    [locale, dir, t, switchLocale],
+  )
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }

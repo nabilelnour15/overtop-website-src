@@ -39,7 +39,6 @@ export const en: Dictionary = {
     quote: 'Request a quote',
     call: 'Call',
     whatsapp: 'WhatsApp',
-    details: 'Details',
   },
   hero: {
     titleLines: ['Every port.', 'Straight to your'],

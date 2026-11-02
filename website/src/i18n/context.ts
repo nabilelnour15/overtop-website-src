@@ -7,9 +7,6 @@ export interface LanguageContextValue {
   /** Strings for the active language. */
   t: Dictionary
   setLocale: (locale: Locale) => void
-  /** The other language — used for the bilingual section markers. */
-  altLocale: Locale
-  alt: Dictionary
 }
 
 export const LanguageContext = createContext<LanguageContextValue | null>(null)

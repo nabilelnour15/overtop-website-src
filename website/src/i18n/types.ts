@@ -70,7 +70,7 @@ export interface Dictionary {
   }
   nav: Record<SectionId, string>
   languageSwitch: { label: string; target: Locale; short: string }
-  cta: { quote: string; call: string; whatsapp: string; details: string }
+  cta: { quote: string; call: string; whatsapp: string }
   hero: {
     titleLines: [string, string]
     titleAccent: string
