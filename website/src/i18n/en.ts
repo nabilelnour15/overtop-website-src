@@ -47,7 +47,7 @@ export const en: Dictionary = {
     titleAccent: "door.",
     lede: "Since 2017, Overtop has cleared, moved and delivered cargo by sea, air and road through every port in Egypt and beyond. One team accountable for the paperwork, the port and the road.",
     imageAlt:
-      "A container ship arriving at a port with gantry cranes, and a cargo aircraft overhead",
+      "Overhead view of a fully loaded container ship at sea, with a cargo aircraft flying above it",
   },
   network: {
     title: "All ports. Lanes to every continent.",

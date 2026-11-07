@@ -14,7 +14,7 @@ export interface SlotImage {
 }
 
 export const images: Record<ImageSlotId, SlotImage | null> = {
-  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 60%' },
+  hero: { src: `${import.meta.env.BASE_URL}images/hero.webp`, position: '50% 35%' },
   import: { src: `${import.meta.env.BASE_URL}images/import.webp`, position: '48% 50%' },
   export: { src: `${import.meta.env.BASE_URL}images/export.webp`, position: '60% 50%' },
   transport: { src: `${import.meta.env.BASE_URL}images/transport.webp`, position: '45% 50%' },
